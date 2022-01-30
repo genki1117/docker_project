@@ -22,7 +22,7 @@ class Category extends Model
 
     /**
      * categoriesテーブルのレコード全件取得
-     * 
+     *
      *
      * @param void
      * @return Category categoriesテーブル
@@ -30,6 +30,11 @@ class Category extends Model
     public function allcategoriesData()
     {
         return $this->get();
+    }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'category_id', 'category_id');
     }
 
 }

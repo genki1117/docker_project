@@ -27,6 +27,9 @@
 <body>
     <div id="id">
         <main class="class">
+            @include('common.nav')
+            <!-- includeで外部ファイル（commonディレクトリのnav.blade.phpファイルを読み込み） -->
+
             @yield('content')
         </main>
     </div>
