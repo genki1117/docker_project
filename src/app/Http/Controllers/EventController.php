@@ -21,4 +21,9 @@ class EventController extends Controller
         $events = $this->event->allEventsData();
         return view('event.index', compact('events'));
     }
+
+    public function register()
+    {
+        return view('event.register');
+    }
 }

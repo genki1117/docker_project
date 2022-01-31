@@ -11,7 +11,7 @@
                 <a class="nav-link active" aria-current="page" href="{{ route('event.index') }}">一覧</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">開催する</a>
+                <a class="nav-link" href="{{ route('event.register') }}">開催する</a>
             </li>
         </ul>
         </div>
