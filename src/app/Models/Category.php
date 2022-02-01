@@ -32,6 +32,9 @@ class Category extends Model
         return $this->get();
     }
 
+    /**
+     * イベントテーブルリレーション
+     */
     public function events()
     {
         return $this->hasMany(Event::class, 'category_id', 'category_id');

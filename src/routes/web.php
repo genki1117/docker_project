@@ -18,3 +18,4 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', [EventController::class, 'index'])->name('event.index');
 Route::get('/category/index', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/event/register', [EventController::class, 'register'])->name('event.register');
+Route::post('/event/create', [Eventcontroller::class, 'create'])->name('event.create');

@@ -28,23 +28,37 @@ class Event extends Model
     ];
 
     /**
-     * eventテーブルのレコード全権取得
+     * eventsテーブルのレコード全権取得
      *
      * @param void
-     * @return Event eventテーブル
+     * @return Event eventsテーブル
      */
     public function allEventsData()
     {
         return $this->get();
     }
 
-    public function addCategoriesDate()
-    {
-        return $this->get();
-    }
-
+    /**
+     * カテゴリーカテゴリーリレーション
+     */
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'category_id');
+    }
+
+    /**
+     * 登録処理 eventsテーブルにinsert
+     */
+    public function insertEventData($request)
+    {
+        return $this->create([
+            'category_id' => $request->category_id,
+            'title'       => $request->title,
+            'date'        => $request->date,
+            'start_time'  => $request->start_time,
+            'end_time'    => $request->end_time,
+            'entry_fee'   => $request->entry_fee,
+            'content'     => $request->content,
+        ]);
     }
 }

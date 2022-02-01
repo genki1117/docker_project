@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form action="" method="">
+    <form action="{{ route('event.create') }}" method="post">
         @csrf
             {{-- タイトルフォーム --}}
             <div class="form-grou mt-1 mb-4">
@@ -41,7 +41,7 @@
             {{-- 参加費フォーム --}}
             <div class="form-group w-25">
                 <label for="entry-fee">{{ '参加費' }}<span class="badge bg-danger ms-2 mb-1">{{ '必須' }}</span></label>
-                <input type="text" class="form-control" name="entry-fee" id="entry-fee">
+                <input type="text" class="form-control" name="entry_fee" id="entry-fee">
             </div>
             {{-- もくもく会詳細 --}}
             <div class="form-group">

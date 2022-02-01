@@ -27,7 +27,7 @@
         <div class="content-wrapper d-flex justify-content-between">
             <div class="content-filed">
                 <p class="card-text text-start">
-                    {{ mb_substr($event->content, 0, 100, 'UTF-8'). '...' }}
+                    {{ mb_substr($event->content, 0, 100, 'UTF-8'), '...' }}
                     <!-- mb-substr(文字列指定, 開始位置, 終了位置, 文字のエンコード) -->
                     <!-- 100文字超えたら「...」 -->
                 </p>
