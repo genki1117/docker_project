@@ -38,6 +38,11 @@ class Event extends Model
         return $this->get();
     }
 
+    public function addCategoriesDate()
+    {
+        return $this->get();
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'category_id');
