@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\EventRequest;
 
 class EventController extends Controller
 {
@@ -35,7 +36,7 @@ class EventController extends Controller
     /**
      * もくもく会登録処理
      */
-    public function create(Request $request)
+    public function create(EventRequest $request)
     {
         try{
             //トラザクション開始
@@ -54,8 +55,5 @@ class EventController extends Controller
             //登録失敗時にリダイレクト
             return redirect()->route('event.index')->with('error', 'もくもく会の登録に失敗しました');
         }
-
-            $insertEvent = $this->event->insertEventData($request);
-            return redirect()->route('event.index');
     }
 }
