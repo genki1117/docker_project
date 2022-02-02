@@ -39,18 +39,23 @@ class EventController extends Controller
     {
         try{
             //トラザクション開始
-            DB::beginTtansaction();
+            DB::beginTransaction();
             //リクエストデータをもとにeventsテーブルにinsert
             $insertEvent = $this->event->insertEventData($request);
             //処理に成功したらコミット
             DB::commit();
-        }catch(\Throwwable $e){
+            //登録成功時にリダイレクト
+            return redirect()->route('event.index')->with('success', 'もくもく会の登録に成功しました');
+        }catch(\Throwable $e){
             //処理に失敗したらロールバック
             DB::rollback();
             //例外を投げる
-            throw $e;
+            \Log::error($e);
+            //登録失敗時にリダイレクト
+            return redirect()->route('event.index')->with('error', 'もくもく会の登録に失敗しました');
         }
 
-        return redirect()->route('event.index');
+            $insertEvent = $this->event->insertEventData($request);
+            return redirect()->route('event.index');
     }
 }
