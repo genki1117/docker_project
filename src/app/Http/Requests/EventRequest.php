@@ -31,9 +31,14 @@ class EventRequest extends FormRequest
                 'required',
                 'max:50'
             ],
+            //カテゴリー
+            'category_id' => [
+                'required'
+            ],
             //日付必須
             'date' => [
-                'required'
+                'required',
+                'after:yesterday'
             ],
             //開始時間必須
             'start_time' => [
@@ -45,7 +50,10 @@ class EventRequest extends FormRequest
             ],
             //参加費必須
             'entry_fee' => [
-                'required'
+                'required',
+                'integer',
+                'numeric',
+                'min:0'
             ],
             //詳細必須
             'content' => [
