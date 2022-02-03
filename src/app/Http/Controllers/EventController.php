@@ -56,4 +56,9 @@ class EventController extends Controller
             return redirect()->route('event.index')->with('error', 'もくもく会の登録に失敗しました');
         }
     }
+
+    public function show($id)
+    {
+        return view('event.show');
+    }
 }
