@@ -61,4 +61,15 @@ class Event extends Model
             'content'     => $request->content,
         ]);
     }
+
+    /**
+     * idをもとにeventsテーブルから特定のレコードに絞り込む
+     * 
+     * @param int $id イベントID
+     * @return Event
+     */
+    public function findEventByEventId($id)
+    {
+        return $this->where('event_id', $id)->first();
+    }
 }
