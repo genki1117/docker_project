@@ -51,7 +51,7 @@
             <div class="date-col">
                 <h4 class="text-center pt-3">{{ '開催日' }}</h4>
                 <div class="date-col-main">
-                    <p class="text-center pt-1">{{ '11/12(金)' }}</p>
+                    <p class="text-center pt-1">{{ $date . '(' . $week[$getWeek] . ')' }}</p>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
                     <h4 class="text-center pt-3">{{ '開催時間' }}</h4>
                 </div>
                 <div class="time-col-main">
-                    <p class="text-center pt-1">{{ '11:00' }}{{ '-' }}{{ '14:00' }}</p>
+                    <p class="text-center pt-1">{{ $start_time }}{{ '-' }}{{ $end_time }}</p>
                 </div>
             </div>
         </div>
