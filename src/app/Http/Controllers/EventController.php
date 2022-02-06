@@ -85,4 +85,9 @@ class EventController extends Controller
 
         return view('event.show', compact('event', 'date', 'getWeek', 'week', 'start_time', 'end_time'));
     }
+
+    public function edit(Request $request, $id)
+    {
+        return view('event.edit');
+    }
 }
