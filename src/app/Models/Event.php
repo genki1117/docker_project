@@ -14,7 +14,7 @@ class Event extends Model
     protected $table = "events";
 
     //テーブルに関連づける主キー
-    protected $primarykey = 'event_id';
+    protected $primaryKey = 'event_id';
 
     //登録、編集ができるカラム
     protected $fillable = [
@@ -71,5 +71,23 @@ class Event extends Model
     public function findEventByEventId($id)
     {
         return $this->where('event_id', $id)->first();
+    }
+
+    public function updatedEventData($request, $event)
+    {
+        return $event->fill([
+            'category_id' => $request->category_id,
+            'title'       => $request->title,
+            'date'        => $request->date,
+            'start_time'  => $request->start_time,
+            'end_time'    => $request->end_time,
+            'entry_fee'   => $request->entry_fee,
+            'content'     => $request->content,
+        ])->save();
+    }
+
+    public function deletedEventData($id)
+    {
+        return $this->destroy($id);
     }
 }

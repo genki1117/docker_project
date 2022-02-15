@@ -86,8 +86,38 @@ class EventController extends Controller
         return view('event.show', compact('event', 'date', 'getWeek', 'week', 'start_time', 'end_time'));
     }
 
+    /**
+     * 編集画面
+     */
     public function edit(Request $request, $id)
     {
-        return view('event.edit');
+        //カテゴリー一覧取得
+        $categories = $this->category->allCategoriesData();
+
+        //IDをもとに編集画面に表示するもくもく会のデータを1件取得
+        $event = $this->event->findEventByEventId($id);
+
+        return view('event.edit', compact('categories', 'event'));
+    }
+
+    public function update(EventRequest $request)
+    {
+        // イベントIDを取得
+        $eventId = $request->event_id;
+
+        // イベントIDをもとに更新対象のレコードを1件取得
+        $event = $this->event->findEventByEventId($eventId);
+
+        // 更新対象のレコードの更新処理を実行
+        $isUpdated = $this->event->updatedEventData($request, $event);
+
+        return redirect()->route('event.index')->with('success', 'もくもく会の更新に成功しました');
+    }
+
+    public function delete($id)
+    {
+        //更新対象のレコードの削除処理
+        $isDeleted = $this->event->deletedEventData($id);
+        return redirect()->route('event.delete')->with('success', 'もくもく会の削除に成功しました');
     }
 }

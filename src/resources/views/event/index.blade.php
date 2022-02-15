@@ -49,8 +49,9 @@
             <div class="btn-filed ml-auto">
                 <a href="{{ route('event.show', ['id' => $event->event_id]) }}" class="btn btn-primary me-3">{{ '詳細' }}</a>
                 <a href="{{ route('event.edit', ['id' => $event->event_id]) }}" class="btn btn-info me-3">{{ '編集' }}</a>
+                <a href="{{ route('event.delete', ['id' => $event->event_id]) }}" class="btn btn-danger me-3">{{ '削除' }}</a>
                 <!-- <button class="btn btn-info me-3">{{ '編集' }}</button> -->
-                <button class="btn btn-danger me-3">{{ '削除' }}</button>
+                <!-- <button class="btn btn-danger me-3">{{ '削除' }}</button> -->
             </div>
         </div>
     </div>
